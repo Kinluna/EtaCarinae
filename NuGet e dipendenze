@@ -2,6 +2,7 @@ NuGet
 BEWARE THE VERSION
 SqlServer -> Data, Main Project
 Tools -> Data
+Design -> Data
 
 Dependencies
 Services richiama Data, Model

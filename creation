@@ -43,6 +43,59 @@ MAIN PROJECT
 
   }
 
-  
+PROJECT Services
+  // Qui ho sempre un'interfaccia e la corrispettiva classe
+  public interface IProfileService
+  {
 
+    GetProfileResponseViewModel GetSingleProfile();
+
+    List<GetProfileResponseViewModel> GetAllProfiles(); 
+
+    RegisterResponseViewModel Register(RegisterRequestViewModel model);
+
+    SignInResponseViewModel SignIn(SignInRequestViewModel model);
+
+    bool AddUser(AddProfileRequestViewModel model);
+
+  }
+
+  // Parte di ProfileService
+  public class ProfileService : IProfileService
+  {
+    private readonly ProfiloDBContext _context;
+    public ProfileService(ProfiloDBContext context)
+    {
+        _context = context;
+    }
+
+    public GetProfileResponseViewModel GetSingleProfile()
+    {
+        GetProfileResponseViewModel response = new GetProfileResponseViewModel();
+        response.Id = new Guid();
+        response.Name = "Paolo";
+        response.Surname = "Rossi";
+
+        return response;
+    }
+
+    ...
+
+  }
+
+PROJECT Models
+// Qui ho i viewModel
+// ESEMPIO
+
+public class AddProfileRequestViewModel
+{
+    public string Name { get; set; }
+    public string Surname { get; set; }
+    public string Phone { get; set; }
+}
+
+public class AddProfileResponseViewModel
+{
+    public string InfoMessage { get; set; }
+}
   

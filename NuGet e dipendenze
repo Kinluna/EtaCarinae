@@ -1,0 +1,8 @@
+NuGet
+BEWARE THE VERSION
+SqlServer -> Data, Main Project
+Tools -> Data
+
+Dependencies
+Services richiama Data, Model
+Main Project richiama Model, Services

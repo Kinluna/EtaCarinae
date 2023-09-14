@@ -1,0 +1,48 @@
+MAIN PROJECT
+
+  CLASS Program.cs
+    // Add services to the container.
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<ProfiloDBContext>(options =>
+    { options.UseSqlServer(connectionString); }
+    );
+
+    builder.Services.AddScoped<IProfileService, ProfileService>();
+
+  FOLDER Controllers
+    CLASS Profile/Product/Etc
+      // Qui dentro si inseriscono i metodi con il CRUD set.
+          [Route("api/[controller]")]
+    [ApiController]
+    public class Profile : ControllerBase
+    {
+
+        private readonly IProfileService _profileService;
+        public Profile(IProfileService profileService)
+        {
+            _profileService = profileService;
+        }
+        // ESEMPIO DI CREATE METHOD
+        [HttpPost]
+        [Route("SignIn")]
+        public IActionResult SignIn(SignInRequestViewModel model)
+        {
+            try
+            {
+                var x = _profileService.SignIn(model);
+                return Ok(x);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+    ...
+
+  }
+
+  
+
+  

@@ -1,1 +1,2 @@
-Add-Migration *NomeMigrazione*-Context *Nome Mio Context*
+Per creare: Add-Migration *NomeMigrazione*-Context *Nome Mio Context*
+Per modificare: Update-Database *NomeMigrazione*-Context *Nome Mio Context*

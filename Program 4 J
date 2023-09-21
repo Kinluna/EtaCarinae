@@ -1,36 +1,9 @@
-using Data.Models;
-using Microsoft.EntityFrameworkCore;
-using Services;
+<form #profileForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
 
-var builder = WebApplication.CreateBuilder(args);
+...
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<BarnardDBContext>(options =>
-{ options.UseSqlServer(connectionString); }
-    );
 
-builder.Services.AddScoped<IProfileStateService, ProfileStateService>();
-builder.Services.AddScoped<IProfileService, ProfileService>();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+  <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button>
+</form>

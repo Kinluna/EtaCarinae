@@ -1,9 +1,28 @@
 <form #profileForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newProfile.name" required>
+  </div>
 
-...
+  <div class="form-group">
+    <label for="surname">Surname:</label>
+    <input type="text" class="form-control" id="surname" name="surname" [(ngModel)]="newProfile.surname" required>
+  </div>
 
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="newProfile.email" required>
+  </div>
 
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <input type="number" class="form-control" id="age" name="age" [(ngModel)]="newProfile.age" required>
+  </div>
+
+  <div class="form-group">
+    <label for="profileState">Profile State:</label>
+    <input type="number" class="form-control" id="profileState" name="profileState" [(ngModel)]="newProfile.profileState" required>
+  </div>
 
   <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button>
 </form>
